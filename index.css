@@ -1,194 +1,285 @@
-
- 
- 
- * {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+.xd {
+  position: relative;
+  width: 100%;
+  height: 150vh; /* Ocupa toda la altura de la pantalla */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+
+}
+
+.xd img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantén la imagen proporcional y que cubra el contenedor */
+  object-position: center; /* Centra la imagen */
+  filter: brightness(50%);
+  transition: transform 0.5s ease; /* Animación al hacer hover */
+}
+
+.xd:hover img {
+  transform: scale(1.2); /* Mantiene tu animación de hover */
+}
+
+.text {
+  position: relative;
+  font-size: 60px;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  filter: brightness(120%);
+}
+
+
+
+
+/* Contenedor del formulario */
+.form {
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid #007bff;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas */
+.form label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+/* Campo de entrada */
+.form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 91, 187, 0.5);
+}
+
+/* Botón de envío */
+.form button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+  background: linear-gradient(135deg, #0056b3, #003c8a);
+  transform: scale(1.05);
+}
+
+
+
+
+
+.input-group input:focus {
+
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+
+
+
+
+.input-group label {
+
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 1rem;
+  color: #adadad;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.8rem;
+  color: #0d6efd;
+}
+
+
+
+
+/* Mensaje oculto */
+#message {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 20px;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#message.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: red; /* Establece el color del texto en rojo */
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-in-out;
+  opacity: 0;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+
+
+  .xd {
+    height: 70vh; /* Ajusta la altura de la imagen */
+  }
+
+  .text {
+    font-size: 38px; /* Reduce el tamaño del texto */
   }
 
 
-
-   
-     .xd {
-
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.8);
-      }
-
-
-
-  
-      .xd img {
-
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-        object-fit: cover; 
-        object-position: center 85%; 
-        filter: brightness(50%); 
-
-      }
-
-
-  
-
-
-  .xd:hover img {
-
-    transform: scale(1.2);
-  }
+}
 
 
 
 
- 
- .text {
-
-    position: relative;
-    font-size: 60px;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-style: italic;
-    font-weight: bold;
-    z-index: 1;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    filter: brightness(120%); /* Reduce el brillo al 50% */
-
-  }
-
-
-
-
-  /* Estilo del form */
-
-  .form {
-
-    background-color: #f8f9fa;
-    padding: 20px;
-    max-width: 400px;
-    margin: 20px auto;
-    box-shadow: 3px 0 40px;
-    border-radius: 8px;
-    border: 2px solid #007bff;
-    border-radius: 25px;
-
-  }
-
-
-
-
-  .form label {
-
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-
-  }
-
-
-
-
-  .form input[type="text"],
-  .form input[type="email"] {
-
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
-  }
-  
-
-
-  .form button {
-
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-  }
-
-
-
-
-  .form button:hover {
-    background-color: #0056b3;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Queries para dispositivos móviles y tablets */
-
-
-
+/* Media Queries para móviles */
 @media (max-width: 768px) {
 
-
-    .text {
-
-      font-size: 40px; 
-      padding: 0 20px; 
-
-    }
-  
-
-    .form {
-
-      max-width: 90%; 
-    }
+  .text {
+    font-size: 20px; /* Reduce el tamaño del texto */
   }
 
-
-  
-  @media (max-width: 480px) {
-
-    /* Reduce aún más el tamaño del texto en móviles */
-    .text {
-
-      font-size: 30px; 
-      padding: 0 15px;
-
-    }
-  
-    
-    .xd {
-
-      height: 70vh; 
-
-    }
-  
-    .form {
-      max-width: 90%; 
-      padding: 15px;
-    }
+  .xd {
+    height: 40vh; /* Ajusta la altura de la imagen */
   }
+
+  .form {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .form label {
+    font-size: 12px;
+  }
+
+  .form input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 15px; /* Más pequeño para pantallas muy pequeñas */
+  }
+
+  .xd {
+    height: 40vh; /* Reduce aún más la imagen */
+  }
+
+  .form {
+    width: 80%;
+    padding: 15px;;
+  }
+
+  .form button {
+    font-size: 12px;
+  }
+}
